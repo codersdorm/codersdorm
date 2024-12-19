@@ -1,0 +1,449 @@
+<html><head><base href="." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodersDorm - Learn Tech & Freelancing in Real-Time</title>
+<style>
+:root {
+    --primary: #2a2185;
+    --secondary: #4CAF50;
+    --light: #f4f4f4;
+    --dark: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.navbar {
+    background: var(--primary);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.hero {
+    background: linear-gradient(rgba(42, 33, 133, 0.8), rgba(42, 33, 133, 0.9)),
+                url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 1rem;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    animation: slideDown 1s ease;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease 0.5s forwards;
+    opacity: 0;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    animation: fadeIn 1s ease 1s forwards;
+    opacity: 0;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+}
+
+.courses {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.courses h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.course-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.course-card h3 {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 0.5rem;
+}
+
+.course-card p {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.features {
+    background: var(--light);
+    padding: 3rem 1rem;
+}
+
+.features-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.feature-item {
+    padding: 1.5rem;
+}
+
+.feature-icon {
+    width: clamp(40px, 8vw, 60px);
+    height: clamp(40px, 8vw, 60px);
+    margin: 0 auto 1rem;
+}
+
+.feature-item h3 {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+.faq {
+    padding: 4rem 1rem;
+    background: var(--light);
+}
+
+.faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.faq-item {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.contact {
+    padding: 4rem 1rem;
+    background: var(--primary);
+    color: white;
+}
+
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 2rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    padding: 1rem;
+}
+
+.contact-item h3 {
+    margin-bottom: 1rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+}
+
+.contact-item p {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">CodersDorm</div>
+            <div class="nav-links">
+                <a href="#courses" class="course-link">Programs</a>
+                <a href="#features">Why Live?</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Learn Tech & Freelancing in Real-Time</h1>
+            <p>Master coding and freelancing with live, interactive sessions tailored to your pace. Join our expert-led community and transform your skills through hands-on learning.</p>
+            <a href="#courses" class="cta-btn">Explore Programs</a>
+        </div>
+    </section>
+
+    <section class="courses" id="courses">
+        <h2>Our Live Programs</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Python for Beginners</h3>
+                <p>Master Python fundamentals through live coding sessions. Get real-time feedback and build practical projects with expert guidance.</p>
+            </div>
+            <div class="course-card">
+                <h3>Freelancing Cohort Program</h3>
+                <p>Learn the art of freelancing success: networking, pitching, and client acquisition. Join a supportive cohort for accountability and growth.</p>
+            </div>
+            <div class="course-card">
+                <h3>HTML & CSS Basics</h3>
+                <p>Build responsive websites from scratch with hands-on projects and live mentoring sessions.</p>
+            </div>
+            <div class="course-card">
+                <h3>Technical Writing Masterclass</h3>
+                <p>Create impactful technical content for global audiences. Learn documentation, blogging, and content strategy.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-content">
+            <h2>Why Choose Live Learning?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 6V12L16 14M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"/>
+                    </svg>
+                    <h3>Real-Time Interaction</h3>
+                    <p>Get immediate answers to your questions and receive personalized guidance during live sessions.</p>
+                </div>
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"/>
+                    </svg>
+                    <h3>Cohort-Based Learning</h3>
+                    <p>Learn alongside peers, build connections, and grow together in a supportive environment.</p>
+                </div>
+                <div class="feature-item">
+                    <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12H18L15 21L9 3L6 12H2"/>
+                    </svg>
+                    <h3>Practical Application</h3>
+                    <p>Apply your learning immediately through hands-on projects and real-world scenarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>Are sessions recorded?</h3>
+                <p>Yes, all live sessions are recorded for your reference and review.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How long are the programs?</h3>
+                <p>Programs typically run for 8-12 weeks, with 2-3 live sessions per week.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What if I miss a live session?</h3>
+                <p>You'll have access to the session recording, and our instructors provide catch-up support.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2>Get in Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>123 Tech Street, Silicon Valley</p>
+                    <p>California, USA</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Contact Information</h3>
+                    <p>Email: info@codersdorm.com</p>
+                    <p>Phone: +1 (555) 123-4567</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Office Hours</h3>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CodersDorm. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.course-card, .contact-item, .faq-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease-out';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
